@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>		
+	
+	<title>Marcos Herrera</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="css" />
+	<meta name="keywords" content="css" />
+	<meta name="author" content="Marcos Herrera" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<!--CSS-->
+	<link rel="stylesheet" href="../CSS/Content.css" type="text/css" />
+	
+	<!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<!-- Vue.js-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+	<!--JQuery-->
+	<link src = "" /> <!--check why this is empty-->
+	
+	</head>
+	
+	<body onload = "default_page()">
+	
+	<!--Navigation-->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">My Programing Portfolio</a>
+			</div>
+		<ul class="nav navbar-nav">
+			<li class = "inactive"><a href="../HTML/index.html">Home</a></li>
+			<li class = "inactive"><a href="../HTML/webdev.html">Web Development</a></li>
+			<li class = "inactive"><a href="../HTML/software.html">Software Projects</a></li>
+			<li class = "inactive"><a href="../HTML/iot.html">IOT</a></li>
+			<li class = "active"><a href="#">Unity</a></li>
+			<li class = "inactive"><a href="../HTML/resume.html">Resume</a></li>
+		</ul>
+		
+		<ul class="nav navbar-nav navbar-right">
+		 <li><a><span class="glyphicon glyphicon-align-justify"></span></li>
+		</ul>
+		</div>
+		
+	</nav>
+	
+	<div>
+			<img src = "../Images/1200px-Unity_Technologies_logo.svg.png" Id = "Image_changer"> <!--affected by javascript maybe difficult to fade but worth it-->
+	</div>
+	
+	<!--Container-->
+	<div class = "container">
+		<div class = "left_panel">
+		<ul> <!--might have to make this js too-->
+			<li><button value = "Intro" class="btn btn-link"><h2>Intro</h2></button></li>
+				<ul class = "Inner">
+					<button value = "Sub1" class="btn btn-link"><h2>Sub1</h2></button></li>
+					<button value = "Sub2" class="btn btn-link"><h2>Sub2</h2></button></li>
+				</ul>
+			<li><button value = "Sol Infinium" class="btn btn-link"><h2>Sol Infinium</h2></button></li> <!--turn into javascript/unordered list inside an ordered list with no dots-->
+				<ul class = "Inner">
+					<button value = "Sub1" class="btn btn-link"><h2>Sub1</h2></button></li>
+					<button value = "Sub2" class="btn btn-link"><h2>Sub2</h2></button></li>
+				</ul>
+			<li><button value = "Magnets" class="btn btn-link"><h2>Magnets</h2></button></li>
+				<ul class = "Inner">
+					<button value = "Sub1" class="btn btn-link"><h2>Sub1</h2></button></li>
+					<button value = "Sub2" class="btn btn-link"><h2>Sub2</h2></button></li>
+				</ul>
+			<li><button value = "Piano" class="btn btn-link"><h2>Piano</h2></button></li>
+				<ul class = "Inner">
+					<button value = "Sub1" class="btn btn-link"><h2>Sub1</h2></button></li>
+					<button value = "Sub2" class="btn btn-link"><h2>Sub2</h2></button></li>
+				</ul>
+		</ul>
+		</div>
+		
+		<div class = "content_panel">
+			<h1 id = "title"></h1> <!--turn this into javascript-->
+		</div>
+		
+	</div>
+	
+	<script> // use as external file// use vue.js when the setup is complete
+	
+	$(document).ready(function () {
+		$("button").click(function () { //change button to class name... used JQuery for simplicity of this operater
+			Select(this.value);
+		});
+	});
+
+	function default_page(){
+		var cont = document.getElementById("title");
+		var img = document.getElementById("Image_changer");
+		Select("Intro"); //Select has to recognize the first sub
+		
+		/*if(cont.innerHTML === ""){ This works for testing page load
+			alert("nothing here");
+		}*/
+	}
+	
+	window.addEventListener("resize", function(){
+		var x = document.getElementsByClassName("nav");
+		if(window.innerWidth >= 770){
+			x[0].classList.remove("hide");
+			x[1].classList.add("hide");
+		} else {
+			x[0].classList.add("hide");
+			x[1].classList.remove("hide");
+		}
+	});
+	
+	function Select(str){
+		var title;
+		if(str == "Intro"){ // want to implement vue inside here
+			title = document.getElementById("title");
+			title.innerHTML = "Hello World";
+			SubDrop(str);
+		} else if(str == "Sol Infinium"){
+			title = document.getElementById("title");
+			title.innerHTML = "Sol Infinium";
+			SubDrop(str);
+		} else if(str == "Magnets"){
+		title = document.getElementById("title");
+			title.innerHTML = "Magnets";
+			SubDrop(str);
+		} else if(str == "Piano"){
+		title = document.getElementById("title");
+			title.innerHTML = "Piano";
+			SubDrop(str);
+		}  else {
+			alert("fail");
+		}
+	}
+	
+	function SubDrop(str){ // try to simplify using an array
+		if(str == "Intro"){
+			if(document.getElementsByClassName("Inner")[0].style['display'] == "none"){ // not sure why this is working... really not sure...
+				document.getElementsByClassName("Inner")[0].style = "display";
+			} else {
+				document.getElementsByClassName("Inner")[0].style['display'] = "none"; 
+			}
+		} else if(str == "Sol Infinium"){
+			if(document.getElementsByClassName("Inner")[1].style['display'] == "none"){ 
+				document.getElementsByClassName("Inner")[1].style = "display";
+			} else {
+				document.getElementsByClassName("Inner")[1].style['display'] = "none"; 
+			}
+		} else if(str == "Magnets"){
+			if(document.getElementsByClassName("Inner")[2].style['display'] == "none"){ 
+				document.getElementsByClassName("Inner")[2].style = "display";
+			} else {
+				document.getElementsByClassName("Inner")[2].style['display'] = "none"; 
+			}
+		} else if(str == "Piano"){
+			if(document.getElementsByClassName("Inner")[3].style['display'] == "none"){ 
+				document.getElementsByClassName("Inner")[3].style = "display";
+			} else {
+				document.getElementsByClassName("Inner")[3].style['display'] = "none"; 
+			}
+		}
+	}
+	
+	var app1 = new Vue({ // testing this out
+		el: '#title',
+		data: { 
+			message: 'Helloe Vue!'
+		}		
+	})
+	
+	</script>
+	
+	<!--Footer-->
+	<footer>
+		
+	</footer>
+	</body>
+	
+</html>

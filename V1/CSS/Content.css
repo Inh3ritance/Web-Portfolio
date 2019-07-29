@@ -1,0 +1,81 @@
+.container{
+	width:100% !important;
+	padding:0px !important;
+}
+
+h1, h2, .container{
+	margin:0px !important;
+}
+
+.inactive a:hover{
+	background-color:#66c07c !important;
+}
+
+#Image_changer{
+	max-width: 100%;
+    max-height: 100%;
+	width:100%;
+	border-bottom: solid;
+	display: block;
+    margin: auto;
+}
+
+.left_panel,.content_panel{
+	height: 100%;
+	position:absolute;
+	padding-top: 20px;
+}
+
+.left_panel{
+	background-color:#1C1C1C;
+	text-decoration:underline;
+	color:black;
+	width:20%; /*make this size adujstable*/
+	padding-left:2%;
+	border-right:solid;
+	display:block;
+	left:0;
+	overflow:hidden;
+	list-style-type:circle;
+}
+
+h1{ /*for left panel*/
+	cursor:pointer;
+}
+
+h2{
+	color:#666666; /*need h2 to be gray for left panel*/
+}
+
+.content_panel{
+	cursor: alias;
+	right:0;
+	text-align:center;
+	width:80%;
+	overflow:scroll; /*may remove or do other method*/
+}
+
+footer{
+	bottom:0;
+	text-align: center;
+    float: left;
+    left: 0;
+    width: 100%;
+	position:fixed;
+}
+
+.hide{
+	visibility:none;
+	display:none !important;
+}
+
+#menu-bar{
+   color: white;
+   position:absolute !important;
+   padding:100%;
+}
+
+.container-fluid{
+	padding-right:0px !important;
+	padding-left:0px;
+}
